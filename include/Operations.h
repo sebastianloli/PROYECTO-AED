@@ -1,3 +1,30 @@
+// ═══════════════════════════════════════════════════════════════════
+//  ARCHIVO : Operations.h
+//  CARPETA : include/
+//  AUTOR   : Miembro 2
+//  ───────────────────────────────────────────────────────────────────
+//  QUÉ HACE:
+//    Declara todas las funciones de agregación y el evaluador de
+//    fórmulas. Son funciones libres (no métodos de clase) que
+//    operan sobre una SparseMatrix recibida por referencia const.
+//
+//  QUÉ CONTIENE:
+//    · sumRow / sumCol             — Op. 8:  suma de fila o columna
+//    · sumRange(r1,c1,r2,c2)      — Op. 9:  suma de rango rectangular
+//    · avgRow / avgCol / avgRange  — Op. 10: promedio (nullopt si no
+//                                            hay valores numéricos)
+//    · maxRange / minRange         — Op. 11: máximo y mínimo en rango
+//    · evaluateFormula(m, "=A1+B2")— Op. 12: evalúa expresión aritmética
+//                                            con referencias a celdas
+//
+//  IMPLEMENTACIÓN:
+//    Ver src/Operations.cpp
+//
+//  NOTAS:
+//    · Las funciones ignoran celdas con texto — solo procesan doubles.
+//    · evaluateFormula retorna nullopt si la expresión es inválida
+//      o si hay división por cero.
+// ═══════════════════════════════════════════════════════════════════
 #pragma once
 #include "SparseMatrix.h"
 #include <optional>

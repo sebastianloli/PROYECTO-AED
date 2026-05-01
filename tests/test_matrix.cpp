@@ -1,7 +1,41 @@
-// test_matrix.cpp — Casos borde del enunciado (Miembro 1 + 2)
-// Compilar directamente:
-//   g++ -std=c++17 -I../include ../src/SparseMatrix.cpp \
-//       ../src/Operations.cpp test_matrix.cpp -o test_matrix && ./test_matrix
+// ═══════════════════════════════════════════════════════════════════
+//  ARCHIVO : test_matrix.cpp
+//  CARPETA : tests/
+//  AUTORES : Miembro 1 + Miembro 2
+//  ───────────────────────────────────────────────────────────────────
+//  QUÉ HACE:
+//    Suite de pruebas unitarias que verifica todos los casos borde
+//    que el enunciado pide manejar sin errores de memoria ni
+//    comportamiento indefinido. Se compila y ejecuta por separado,
+//    sin necesidad de GUI.
+//
+//  CÓMO COMPILAR Y EJECUTAR:
+//    Desde la carpeta raíz del proyecto:
+//      g++ -std=c++17 -Iinclude src/SparseMatrix.cpp \
+//          src/Operations.cpp tests/test_matrix.cpp -o test_matrix
+//      ./test_matrix
+//
+//  QUÉ PRUEBA (12 tests, todos deben imprimir [PASS]):
+//    1. consultar_celda_inexistente  — nullopt, sin crash
+//    2. eliminar_celda_inexistente   — sin crash
+//    3. modificar_celda_inexistente  — retorna false
+//    4. eliminar_fila_vacia          — sin crash
+//    5. eliminar_columna_vacia       — sin crash
+//    6. agregacion_sin_numericos     — nullopt / suma = 0
+//    7. agregacion_rango_vacio       — nullopt / suma = 0
+//    8. texto_no_contamina_suma      — texto ignorado en sumas
+//    9. upsert_no_duplica_nodo       — insert sobre celda existente
+//                                      actualiza sin crear duplicado
+//   10. eliminar_rango               — A1:B2 eliminado, C3 intacta
+//   11. formulas                     — +, -, *, /, división por cero
+//   12. punteros_columna_tras_deleteRow — columna queda correcta
+//                                        después de eliminar una fila
+//
+//  RESULTADO ESPERADO:
+//    [PASS] consultar_celda_inexistente
+//    [PASS] ... (12 líneas)
+//    Todos los tests pasaron.
+// ═══════════════════════════════════════════════════════════════════
 
 #include "SparseMatrix.h"
 #include "Operations.h"

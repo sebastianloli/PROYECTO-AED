@@ -1,3 +1,32 @@
+// ═══════════════════════════════════════════════════════════════════
+//  ARCHIVO : SparseMatrix.h
+//  CARPETA : include/
+//  AUTOR   : Miembro 1
+//  ───────────────────────────────────────────────────────────────────
+//  QUÉ HACE:
+//    Declara la clase SparseMatrix, que es la hoja de cálculo
+//    completa. Gestiona la lista enlazada cruzada y expone las
+//    7 operaciones básicas requeridas por el enunciado.
+//
+//  QUÉ CONTIENE:
+//    · insert(row, col, value)     — Op. 1: inserta o actualiza
+//    · query(row, col)             — Op. 2: consulta; nullopt si vacía
+//    · modify(row, col, value)     — Op. 3: modifica sin crear nodo
+//    · deleteCell(row, col)        — Op. 4: elimina celda individual
+//    · deleteRow(row)              — Op. 5: elimina fila completa
+//    · deleteCol(col)              — Op. 6: elimina columna completa
+//    · deleteRange(r1,c1,r2,c2)   — Op. 7: elimina rango rectangular
+//    · parseCoord / coordToString  — convierte "B3" ↔ {fila=2, col=1}
+//    · getRowHead / getColHead     — acceso interno para Operations.h
+//    · firstRow / firstCol         — iteración para agregaciones
+//
+//  IMPLEMENTACIÓN:
+//    Ver src/SparseMatrix.cpp
+//
+//  COMPLEJIDAD CLAVE:
+//    Todas las operaciones de celda son O(k) donde k es el número
+//    de nodos en esa fila o columna — no O(N·M) como un arreglo denso.
+// ═══════════════════════════════════════════════════════════════════
 #pragma once
 #include "Node.h"
 #include <optional>
