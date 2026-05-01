@@ -1,0 +1,11 @@
+#input
+    100
+#output
+    50
+#endtest
+
+#input
+    1000
+#output
+    500
+#endtest
