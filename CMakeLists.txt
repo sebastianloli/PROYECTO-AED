@@ -21,20 +21,19 @@ message(STATUS "Qt6 version: ${Qt6_VERSION}")
 
 include_directories(include)
 
-# Biblioteca core — sin GUI
+# Biblioteca core — SparseMatrix y Operations
 add_library(core STATIC
     src/SparseMatrix.cpp
     src/Operations.cpp
-    src/FormulaParser.cpp
 )
 
-# Ejecutable principal — incluir los .h con Q_OBJECT para que automoc los procese
+# Ejecutable principal con GUI Qt6
 add_executable(spreadsheet
     src/main.cpp
     src/MainWindow.cpp
     src/GridWidget.cpp
-    include/MainWindow.h      # necesario para que automoc genere moc_MainWindow.cpp
-    include/GridWidget.h      # necesario para que automoc genere moc_GridWidget.cpp
+    include/MainWindow.h
+    include/GridWidget.h
 )
 target_link_libraries(spreadsheet core Qt6::Widgets Qt6::Core Qt6::Gui)
 
