@@ -120,6 +120,7 @@ En la tabla siguiente, las variables tienen el siguiente significado:
 - `t`   = número de tokens en una expresión de fórmula
 - `N`   = número total de filas de la hoja (arreglo denso)
 - `M`   = número total de columnas de la hoja (arreglo denso)
+
 | Operación               | Lista enlazada cruzada | Arreglo denso | Observación |
 |-------------------------|------------------------|---------------|-------------|
 | Insertar celda          | O(k_f + k_c)           | O(N·M)        | Enlaza en fila y columna |
