@@ -42,15 +42,14 @@
 //    eliminar fila entera                  : O(k_fila * log)
 //    agregar sobre rango                   : O(k)
 // ─────────────────────────────────────────────
-class SparseMatrix
-{
+class SparseMatrix {
 public:
     SparseMatrix();
     ~SparseMatrix();
 
     // Prohibir copia (gestión manual de punteros)
-    SparseMatrix(const SparseMatrix &) = delete;
-    SparseMatrix &operator=(const SparseMatrix &) = delete;
+    SparseMatrix(const SparseMatrix&)            = delete;
+    SparseMatrix& operator=(const SparseMatrix&) = delete;
 
     // ── Operaciones básicas de celda ─────────
     // 1. Insertar o actualizar (upsert)
@@ -77,25 +76,25 @@ public:
 
     // ── Conversión de coordenadas ─────────────
     // "B3" -> {row=2, col=1}  (base-0)
-    static std::pair<int, int> parseCoord(const std::string &coord);
+    static std::pair<int,int> parseCoord(const std::string& coord);
     // {2,1} -> "B3"
     static std::string coordToString(int row, int col);
 
     // ── Acceso para Operations (solo lectura) ─
-    RowHeader *getRowHead(int row) const;
-    ColHeader *getColHead(int col) const;
-    RowHeader *firstRow() const { return rowList_; }
-    ColHeader *firstCol() const { return colList_; }
+    RowHeader* getRowHead(int row)  const;
+    ColHeader* getColHead(int col)  const;
+    RowHeader* firstRow()           const { return rowList_; }
+    ColHeader* firstCol()           const { return colList_; }
 
     // ── Debug ─────────────────────────────────
     void printAll() const;
 
 private:
-    RowHeader *rowList_; // lista de cabeceras de fila activas
-    ColHeader *colList_; // lista de cabeceras de columna activas
+    RowHeader* rowList_;   // lista de cabeceras de fila activas
+    ColHeader* colList_;   // lista de cabeceras de columna activas
 
-    RowHeader *getOrCreateRow(int row);
-    ColHeader *getOrCreateCol(int col);
+    RowHeader* getOrCreateRow(int row);
+    ColHeader* getOrCreateCol(int col);
     void removeRowHeaderIfEmpty(int row);
     void removeColHeaderIfEmpty(int col);
 };
